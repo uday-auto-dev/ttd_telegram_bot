@@ -1,4 +1,5 @@
 import json
+import os
 import time
 
 from selenium import webdriver
@@ -16,7 +17,8 @@ def fetch_ttd_notifications():
     driver.maximize_window()
     driver.implicitly_wait(5)
 
-    driver.get(data["TTD_URL"])
+    # driver.get(data["TTD_URL"])
+    driver.get(os.environ["TTD_URL"])
     time.sleep(2)
 
     elements = driver.find_elements(By.XPATH, "//div[@class='card_scroll']/ul/li/p[1]")

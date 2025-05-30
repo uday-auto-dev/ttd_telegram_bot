@@ -24,5 +24,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run main script
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          TTD_URL: ${{ secrets.TTD_URL }}
         run: |
           python main.py
