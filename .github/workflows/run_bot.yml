@@ -1,8 +1,8 @@
-name: Run TTD Telegram Bot Every 5 Minutes (Test)
+name: Run TTD Telegram Bot Every 4 Hours
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Every 5 minutes (UTC time)
+    - cron: '0 */4 * * *'  # # Every 4 hours(UTC)
   workflow_dispatch:       # Manual trigger option
 
 jobs:
