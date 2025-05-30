@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from notification import fetch_ttd_notifications
 from telegram_msg import compare_and_send_notifications
 from utils.file_utils import load_known_notifications
@@ -15,3 +17,4 @@ def send_ttd_notifications():
 
 if __name__ == "__main__":
     send_ttd_notifications()
+    print("🟢 TTD Bot ran at:", datetime.now())
