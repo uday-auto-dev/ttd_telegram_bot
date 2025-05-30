@@ -1,19 +1,11 @@
 import json
 import os
+from zoneinfo import ZoneInfo
 
 import requests
+
 from datetime import datetime
-
-
 from utils.file_utils import save_notifications
-
-data_path = "data/info.json"
-with open(data_path) as f:
-    data_json = json.load(f)
-    data = data_json["data"][0]
-
-# BOT_TOKEN = data["BOT_TOKEN"]
-# CHAT_ID = data["CHAT_ID"]
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 CHAT_ID = os.environ["CHAT_ID"]
@@ -30,7 +22,8 @@ def send_telegram_message(message):
     return response.status_code
 
 def compare_and_send_notifications(current_notifications, known_notifications):
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    ist_now = datetime.now(ZoneInfo("Asia/Kolkata"))
+    timestamp = ist_now.strftime("%Y-%m-%d %H:%M:%S")
     if not known_notifications:
         # First-time run: send all
         message = (
