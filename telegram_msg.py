@@ -1,4 +1,6 @@
 import json
+import os
+
 import requests
 from datetime import datetime
 
@@ -10,8 +12,11 @@ with open(data_path) as f:
     data_json = json.load(f)
     data = data_json["data"][0]
 
-BOT_TOKEN = data["BOT_TOKEN"]
-CHAT_ID = data["CHAT_ID"]
+# BOT_TOKEN = data["BOT_TOKEN"]
+# CHAT_ID = data["CHAT_ID"]
+
+BOT_TOKEN = os.environ["BOT_TOKEN"]
+CHAT_ID = os.environ["CHAT_ID"]
 
 def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
