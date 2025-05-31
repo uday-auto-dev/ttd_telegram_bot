@@ -1,8 +1,8 @@
-name: Run TTD Telegram Bot Every 4 Hours
+name: Run TTD Telegram Bot Every 2 Hours
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # # Every 4 hours(UTC)
+    - cron: '0 */2 * * *'  # # Every 2 hours(IST)
   workflow_dispatch:       # Manual trigger option
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'  # Use a stable version; 3.13 is pre-release
+          python-version: '3.10'  # Using a stable version
 
       - name: Install dependencies
         run: |
